@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Customers{% endblock %}
+
+{% block content %}
+
+    <h1 class="text-center my-3">Invoices form</h1>
+
+   {{ form_start(importCsvForm, { attr: { novalidate: 'novalidate'} }) }}
+
+        {# flash message #}
+        {% for message in app.flashes('success') %}
+        <div class="alert alert-success m-2" role="alert">
+        {{ message|raw }}
+        </div>
+        {% endfor %}
+        {% for message in app.flashes('falied') %}
+        <div class="alert alert-danger m-2" role="alert">
+        {{ message }}
+        </div>
+        {% endfor %}
+        
+
+        {# Uplode CSV Field #}
+        <div class="form-group mb-2">
+            <label class="form-label" for="customFile">{{ form_label(importCsvForm.csvFile,'Uplode CSV') }}</label><i class="text-danger">*</i>
+            {{ form_widget(importCsvForm.csvFile, {'attr': {'class': 'form-control mb-2 '}})
+            }}
+            <small class="form-text text-danger">{{ form_errors(importCsvForm.csvFile) }}</small>
+        </div>
+
+        <div class="mt-2">
+            {{ form_widget(importCsvForm.save, {'label': 'Submit' , 'attr': {'class': 'btn btn-lg btn-primary mb-2'}})
+            }}
+        </div>
+    
+    {{ form_end(importCsvForm) }}
+
+{% endblock %}
+
+

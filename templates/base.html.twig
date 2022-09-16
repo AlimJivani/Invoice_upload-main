@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Invoice upload{% endblock %}</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" 
+
+        {% block stylesheets %}
+            {# bootstrap css imported #}
+            rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        {% endblock %}
+
+        {% block javascripts %}
+            {# bootstrap js imported #}
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %} 
+
+            {# Navbar  #}
+            {% block nav %}
+                {% include 'header/navbar.html.twig' %}
+            {% endblock %}
+
+        <div class="row" style="width: 100%;">
+            
+            {# sidebar #}
+            <div class="col-2 border">
+                {% block sidebar %}
+                    {% include 'sidebar/sidebar.html.twig' %}
+                {% endblock %}
+            </div>
+
+            {# content #}
+            <div class="col border ml-2">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+        </div>
+        {% endblock %}
+
+        
+        {# Footer #}
+        {% block footer %}
+            {% include 'footer/footer.html' %}
+        {% endblock %}
+    </body>
+</html>

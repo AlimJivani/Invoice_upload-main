@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Data{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center my-3">Listing Invoices</h1>
+     
+    <div class="table-responsive">
+        <table class="table table-hover table-sm text-center">
+        <thead>
+            <tr>
+                <th scope="col">Invoices id</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Due On</th>
+                <th scope="col">Selling price</th>
+            </tr>
+        </thead>
+        {% for d in data %}
+        <tbody>
+            <tr>
+                <td>{{d.invoiceId}}</td>
+                <td>{{d.amount}}</td>
+                <td>{{d.dueOn|date('Y-m-d')}}</td>
+                <td>{{d.sellingPrice}}</td>
+            </tr> 
+        </tbody>
+        {% endfor %}
+        </table>
+    </div> 
+</div> 
+{% endblock %}
